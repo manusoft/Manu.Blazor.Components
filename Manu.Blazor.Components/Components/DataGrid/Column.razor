@@ -1,0 +1,18 @@
+﻿@namespace Manu.Blazor.Components
+@typeparam Model
+
+@if (Item == null)
+{
+    <th>@Label</th>
+}
+else if (ChildContent == null)
+{
+    var property = typeof(Model).GetProperty(Name);
+    <td>@property.GetValue(Item).ToString()</td>
+}
+else
+{
+    <td>@ChildContent</td>
+}
+
+

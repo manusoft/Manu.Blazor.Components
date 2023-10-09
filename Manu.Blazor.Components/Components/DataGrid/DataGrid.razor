@@ -1,0 +1,31 @@
+﻿@namespace Manu.Blazor.Components
+@inherits ManuComponentBase
+@attribute [CascadingTypeParameter(nameof(Model))]
+@typeparam Model
+
+@if (Items == null)
+{
+    <SpinnerCircle SpinnerStyle="Theme.Info" LoadingText="Please wait ..."/>
+}
+else
+{
+    <table class="table @classHover @classStriped @classSmall @classBorder @Class" style="@Style" @attributes="UserAttributes">
+        <thead class="@classHeader">
+            <tr>
+                @Columns(default(Model))
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Items)
+            {
+                <CascadingValue Value="item">
+                    <tr>
+                        @Columns(item)
+                    </tr>
+                </CascadingValue>
+            }
+        </tbody>
+    </table>
+}
+
+
