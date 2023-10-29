@@ -1,0 +1,28 @@
+﻿@namespace Manu.Blazor.Components
+
+@if (isVisible)
+{
+    <div class="alert @classAlertStyle alert-dismissible fade show" role="alert">
+        @if (ChildContent == null)
+        {
+            if (AlertTitle != null)
+            {
+                <strong>@AlertTitle</strong>@AlertMessage
+            }
+            else
+            {
+                @AlertMessage
+            }
+        }
+        else
+        {
+            @ChildContent
+        }
+
+        @if (CloseButton)
+        {
+            <button type="button" class="btn-close" aria-label="Close" @onclick="()=>OnClose()"></button>
+        }
+    </div>
+}
+

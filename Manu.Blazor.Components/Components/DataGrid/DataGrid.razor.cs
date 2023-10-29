@@ -30,6 +30,7 @@ public partial class DataGrid<Model> : ManuComponentBase
     private string classStriped = "table-striped";
     private string classSmall = "table-sm";
     private string classHeader = string.Empty;
+
     protected override void OnInitialized()
     {
         if (Border)
